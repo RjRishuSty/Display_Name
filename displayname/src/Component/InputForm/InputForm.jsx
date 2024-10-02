@@ -1,15 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Styles from "./InputForm.module.css";
 const InputForm = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [fullname, setfullname] = useState("");
+  const [firstname, setFirstname] = useState(null);
+  const [lastname, setLastname] = useState(null);
+  const [fullname, setfullname] = useState(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (firstname && lastname) {
-      setfullname(`${firstname} ${lastname}`);
-    }
+    setfullname(`${firstname} ${lastname}`);
   };
 
   return (
@@ -40,7 +38,7 @@ const InputForm = () => {
         </form>
         {fullname ? (
           <div className={Styles.display}>
-            <h1>Full Name : {`${fullname}`}</h1>
+            <h1>Full Name: {`${fullname}`}</h1>
           </div>
         ) : null}
       </div>
